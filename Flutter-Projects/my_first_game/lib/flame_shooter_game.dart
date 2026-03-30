@@ -1,14 +1,14 @@
 import 'dart:math';
-import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'components/player.dart';
 import 'components/enemy.dart';
 import 'components/star_background.dart';
 
 class FlameShooterGame extends FlameGame
-    with HasCollisionDetection, TapDetector, PanDetector {
+    with HasCollisionDetection, TapDetector, PanDetector, KeyboardEvents {
   late Player player;
   int score = 0;
   int lives = 3;
@@ -17,6 +17,17 @@ class FlameShooterGame extends FlameGame
   final Random _random = Random();
   double _enemySpawnTimer = 0;
   double _enemySpawnInterval = 2.0;
+
+  bool _moveLeft = false;
+  bool _moveRight = false;
+  bool _buttonLeft = false;
+  bool _buttonRight = false;
+  bool _buttonFire = false;
+  static const double _keyboardSpeed = 300;
+
+  void setButtonLeft(bool pressed) => _buttonLeft = pressed;
+  void setButtonRight(bool pressed) => _buttonRight = pressed;
+  void setButtonFire(bool pressed) => _buttonFire = pressed;
 
   @override
   Color backgroundColor() => const Color(0xFF0A0A1A);
@@ -36,10 +47,26 @@ class FlameShooterGame extends FlameGame
   }
 
   @override
+  KeyEventResult onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    _moveLeft = keysPressed.contains(LogicalKeyboardKey.arrowLeft);
+    _moveRight = keysPressed.contains(LogicalKeyboardKey.arrowRight);
+    if (event is RawKeyDownEvent &&
+        event.logicalKey == LogicalKeyboardKey.keyX &&
+        !isGameOver) {
+      player.shoot();
+    }
+    return KeyEventResult.handled;
+  }
+
+  @override
   void update(double dt) {
     super.update(dt);
 
     if (isGameOver) return;
+
+    if (_moveLeft || _buttonLeft) player.move(-_keyboardSpeed * dt);
+    if (_moveRight || _buttonRight) player.move(_keyboardSpeed * dt);
+    if (_buttonFire) player.shoot();
 
     _enemySpawnTimer += dt;
     if (_enemySpawnTimer >= _enemySpawnInterval) {

@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(flutter pub:*)"
+      "Bash(flutter pub:*)",
+      "Bash(xcrun simctl:*)",
+      "Bash(flutter run:*)",
+      "Bash(open -a Simulator)",
+      "Bash(python3 -c \"from PIL import Image, ImageDraw; print\\(''PIL available''\\)\")",
+      "Bash(python3 -c \"import importlib; print\\(''PIL not available''\\)\")",
+      "Bash(convert --version)",
+      "Bash(python3 -c \"import cairosvg\")",
+      "Bash(swift --version)",
+      "Bash(flutter analyze:*)"
     ]
   }
 }

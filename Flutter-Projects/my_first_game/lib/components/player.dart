@@ -7,7 +7,6 @@ import 'bullet.dart';
 
 class Player extends PositionComponent
     with HasGameReference<FlameShooterGame>, CollisionCallbacks {
-  static const double _speed = 300;
   static const double _shootCooldown = 0.3;
 
   double _shootTimer = 0;

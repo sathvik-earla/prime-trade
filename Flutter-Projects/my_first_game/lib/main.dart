@@ -1,28 +1,31 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'flame_shooter_game.dart';
-import 'overlays/hud_overlay.dart';
-import 'overlays/game_over_overlay.dart';
+import 'asphalt7/asphalt_game.dart';
+import 'asphalt7/overlays/car_select_overlay.dart';
+import 'asphalt7/overlays/hud_overlay.dart';
+import 'asphalt7/overlays/game_over_overlay.dart';
 
 void main() {
-  runApp(const FlameShooterApp());
+  runApp(const Asphalt7App());
 }
 
-class FlameShooterApp extends StatelessWidget {
-  const FlameShooterApp({super.key});
+class Asphalt7App extends StatelessWidget {
+  const Asphalt7App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flame Shooter',
+      title: 'Asphalt 7',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: GameWidget<FlameShooterGame>(
-        game: FlameShooterGame(),
+      home: GameWidget<AsphaltGame>(
+        game: AsphaltGame(),
         overlayBuilderMap: {
+          'CarSelect': (context, game) => CarSelectOverlay(game: game),
           'HUD': (context, game) => HudOverlay(game: game),
           'GameOver': (context, game) => GameOverOverlay(game: game),
         },
-        initialActiveOverlays: const ['HUD'],
+        initialActiveOverlays: const [],
       ),
     );
   }
