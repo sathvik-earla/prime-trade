@@ -11,8 +11,23 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
+	<string>6.0</string<key>NSHealthShareUsageDescription</key>
+<string>We need access to your health metrics to track steps, heart rate, and calories.</string>
+<key>NSHealthUpdateUsageDescription</key>
+<string>We need permission to synchronise your fitness activity.</string>
+
+	<key>CFBundleName</key><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://apple.com">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>Life Step</string>
+    <key>CFBundleName</key>
+    <string>Life Step</string>
+    <!-- Remaining configurations -->
+</dict>
+</plist>
+
 	<string>my_first_game</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

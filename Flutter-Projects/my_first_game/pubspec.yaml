@@ -10,11 +10,25 @@ dependencies:
   flutter:
     sdk: flutter
   flame: ^1.15.0
+  health: ^9.0.1
+  http: ^1.1.0
+  google_generative_ai: ^0.4.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  # Add the launcher icons generation plugin
+  flutter_launcher_icons: ^0.13.1
+
+# Configure the Life Step icon paths
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  # Android 8.0+ adaptive icon support (Highly Recommended)
+  adaptive_icon_background: "#FFFFFF" # Change to match your brand color
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
 
 flutter:
   uses-material-design: true
