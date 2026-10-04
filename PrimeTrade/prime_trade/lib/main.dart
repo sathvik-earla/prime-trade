@@ -16,6 +16,7 @@ class PrimeTradeFramework extends StatelessWidget {
     return MaterialApp(
       title: AppConfig.appName,
       debugShowCheckedModeBanner: false,
+      
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppConfig.backgroundObsidian,
         primaryColor: AppConfig.accentsChampagne,
