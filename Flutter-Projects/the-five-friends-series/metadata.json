@@ -1,7 +1,6 @@
 {
   "name": "The Five Friends Series",
   "description": "The Five Friends Series - Read and explore illustrated storybooks and stories. Mobile-optimized for Android and iOS with secure owner access.",
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
